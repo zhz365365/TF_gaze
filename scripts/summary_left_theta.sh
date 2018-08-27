@@ -1,0 +1,1 @@
+tensorboard --logdir=/data/zengdifei/TF_gaze/event_log/left_theta --port=6007

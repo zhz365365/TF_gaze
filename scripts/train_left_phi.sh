@@ -1,0 +1,1 @@
+python3 ../train.py --data_type='MPIIGaze' --GPU='0' --batch_size=256 --eyeball='left' --mission='phi' --net_name='InceptionV3'

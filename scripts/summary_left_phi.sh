@@ -1,0 +1,1 @@
+tensorboard --logdir=/data/zengdifei/TF_gaze/event_log/left_phi --port=6007
