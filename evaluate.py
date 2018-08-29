@@ -20,6 +20,7 @@ parser.add_argument('--image_height', default=144, help='the height of image')
 parser.add_argument('--image_width', default=240, help='the width of image')
 parser.add_argument('--eval_interval_secs', default=5, help='the interval seconds')
 parser.add_argument('--max_step', default=60000, help='max steps')
+parser.add_argument('--test_count', default=12, help='test count in per checkpoints')
 args = parser.parse_args()
 args.batch_size = int(args.batch_size)
 args.data_dir = args.data_dir + args.data_type
@@ -180,7 +181,7 @@ def evaluate():
                 print('No checkpoint file found')
 
             flag = flag + 1
-            if flag == 25:
+            if flag == args.test_count:
                 step = step + 500
                 flag = 0
 
