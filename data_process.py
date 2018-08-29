@@ -20,11 +20,15 @@ def main():
     gaze_y_list = []
     for line in file_input:
         content = line.strip().split(' ')
-        img_list.append(content[0])
-        #pose_x_list.append(float(content[1]))
-        #pose_y_list.append(float(content[2]))
-        gaze_x_list.append(float(content[1]))
-        gaze_y_list.append(float(content[2]))
+        if float(content[1]) > -0.4 and 
+           float(content[1]) < 0.5 and 
+           float(content[2]) > -0.4 and 
+           float(content[2]) < 0.5:
+            img_list.append(content[0])
+            #pose_x_list.append(float(content[1]))
+            #pose_y_list.append(float(content[2]))
+            gaze_x_list.append(float(content[1]))
+            gaze_y_list.append(float(content[2]))
         del content
     file_input.close()
 
@@ -72,11 +76,15 @@ def main():
     gaze_y_list = []
     for line in file_input:
         content = line.strip().split(' ')
-        img_list.append(content[0])
-        #pose_x_list.append(float(content[1]))
-        #pose_y_list.append(float(content[2]))
-        gaze_x_list.append(float(content[1]))
-        gaze_y_list.append(float(content[2]))
+        if float(content[1]) > -0.4 and 
+           float(content[1]) < 0.5 and 
+           float(content[2]) > -0.4 and 
+           float(content[2]) < 0.5:
+            img_list.append(content[0])
+            #pose_x_list.append(float(content[1]))
+            #pose_y_list.append(float(content[2]))
+            gaze_x_list.append(float(content[1]))
+            gaze_y_list.append(float(content[2]))
         del content
     file_input.close()
 

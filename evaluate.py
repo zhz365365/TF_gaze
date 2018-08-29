@@ -135,12 +135,16 @@ def evaluate():
 
     for line in file_input:
         content = line.strip().split(' ')
-        EVAL.img_list.append(content[0])
-        #EVAL.pose_theta_list.append(float(content[1]))
-        #EVAL.pose_phi_list.append(float(content[2]))
-        EVAL.gaze_theta_list.append(float(content[1]))
-        EVAL.gaze_phi_list.append(float(content[2]))
-        EVAL.size += 1
+        if float(content[1]) > -0.4 and 
+           float(content[1]) < 0.5 and 
+           float(content[2]) > -0.4 and 
+           float(content[2]) < 0.5:
+            EVAL.img_list.append(content[0])
+            #EVAL.pose_theta_list.append(float(content[1]))
+            #EVAL.pose_phi_list.append(float(content[2]))
+            EVAL.gaze_theta_list.append(float(content[1]))
+            EVAL.gaze_phi_list.append(float(content[2]))
+            EVAL.size += 1
         del content
     file_input.close()
 
