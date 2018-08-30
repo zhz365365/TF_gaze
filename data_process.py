@@ -20,10 +20,7 @@ def main():
     gaze_y_list = []
     for line in file_input:
         content = line.strip().split(' ')
-        if float(content[1]) > -0.4 and 
-           float(content[1]) < 0.5 and 
-           float(content[2]) > -0.4 and 
-           float(content[2]) < 0.5:
+        if float(content[1]) > -0.4 and float(content[1]) < 0.5 and float(content[2]) > -0.4 and float(content[2]) < 0.5:
             img_list.append(content[0])
             #pose_x_list.append(float(content[1]))
             #pose_y_list.append(float(content[2]))
@@ -76,10 +73,7 @@ def main():
     gaze_y_list = []
     for line in file_input:
         content = line.strip().split(' ')
-        if float(content[1]) > -0.4 and 
-           float(content[1]) < 0.5 and 
-           float(content[2]) > -0.4 and 
-           float(content[2]) < 0.5:
+        if float(content[1]) > -0.4 and float(content[1]) < 0.5 and float(content[2]) > -0.4 and float(content[2]) < 0.5:
             img_list.append(content[0])
             #pose_x_list.append(float(content[1]))
             #pose_y_list.append(float(content[2]))

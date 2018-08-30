@@ -7,7 +7,7 @@ import numpy as np
 import time
 import os
 os.environ['CUDA_VISIBLE_DEVICES']='-1'
-scale = 1
+scale = 0.5
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--checkpoint_dir', default='/data/zengdifei/TF_gaze/check_log', help='path of checkpoints')
 parser.add_argument('--eyeball', default='left', help='the choose of eyeball')
@@ -135,10 +135,7 @@ def evaluate():
 
     for line in file_input:
         content = line.strip().split(' ')
-        if float(content[1]) > -0.4 and 
-           float(content[1]) < 0.5 and 
-           float(content[2]) > -0.4 and 
-           float(content[2]) < 0.5:
+        if float(content[1]) > -0.4 and float(content[1]) < 0.5 and float(content[2]) > -0.4 and float(content[2]) < 0.5:
             EVAL.img_list.append(content[0])
             #EVAL.pose_theta_list.append(float(content[1]))
             #EVAL.pose_phi_list.append(float(content[2]))
@@ -168,7 +165,8 @@ def evaluate():
 
                 ckpt_dir = ckpt.model_checkpoint_path
                 while(step > int(ckpt_dir.split('/')[-1].split('-')[-1])):
-                    time.sleep(0.1)
+                    time.sleep(1)
+                    continue
                 read_dir = ckpt_dir.split('-')[0] + '-' + str(step)
                 saver.restore(sess, read_dir)
                 eye_batch, label_batch = get_batch(args.batch_size, EVAL)
@@ -183,6 +181,7 @@ def evaluate():
                 f.close()
             else:
                 print('No checkpoint file found')
+                continue
 
             flag = flag + 1
             if flag == args.test_count:

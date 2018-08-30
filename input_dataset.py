@@ -4,7 +4,7 @@ os.environ['CUDA_VISIBLE_DEVICES']='0'
 
 from PIL import Image
 
-scale = 1
+scale = 0.5
 
 def read_image(filename_queue):
 
