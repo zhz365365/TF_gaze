@@ -164,7 +164,7 @@ def evaluate():
                         f = open("../result/test_result_right_phi.txt", "a")
 
                 ckpt_dir = ckpt.model_checkpoint_path
-                while(step > int(ckpt_dir.split('/')[-1].split('-')[-1])):
+                if step > int(ckpt_dir.split('/')[-1].split('-')[-1]):
                     time.sleep(1)
                     continue
                 read_dir = ckpt_dir.split('-')[0] + '-' + str(step)
