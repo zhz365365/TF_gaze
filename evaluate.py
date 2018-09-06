@@ -7,7 +7,7 @@ import numpy as np
 import time
 import os
 os.environ['CUDA_VISIBLE_DEVICES']='-1'
-scale = 0.5
+scale = 1
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--checkpoint_dir', default='/data/zengdifei/TF_gaze/check_log', help='path of checkpoints')
 parser.add_argument('--eyeball', default='left', help='the choose of eyeball')

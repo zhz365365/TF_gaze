@@ -1,10 +1,10 @@
 import tensorflow as tf
 import os
-os.environ['CUDA_VISIBLE_DEVICES']='0'
+os.environ['CUDA_VISIBLE_DEVICES']='1'
 
 from PIL import Image
 
-scale = 0.5
+scale = 1
 
 def read_image(filename_queue):
 

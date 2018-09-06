@@ -26,6 +26,7 @@ parser.add_argument('--image_height', default=144, help='the height of image')
 parser.add_argument('--image_width', default=240, help='the width of image')
 args = parser.parse_args()
 args.batch_size = int(args.batch_size)
+args.num_epochs_per_decay = int(args.num_epochs_per_decay)
 args.data_dir = args.data_dir + args.data_type
 
 if args.data_type == 'SM':
