@@ -43,10 +43,17 @@ elif args.data_type == 'M':
 elif args.data_type == 'MPIIGaze':
     if args.eyeball == 'left':
         args.max_step = 183000
-        args.data_dir = args.data_dir + '/p14_Left/'
+        args.data_dir = args.data_dir + '/Left/'
     else:
         args.max_step = 183000
-        args.data_dir = args.data_dir + '/p14_Right/'
+        args.data_dir = args.data_dir + '/Right/'
+elif args.data_type == 'MPIIIGaze':
+    if args.eyeball == 'left':
+        args.max_step = 110000
+        args.data_dir = args.data_dir + '/Left/'
+    else:
+        args.max_step = 110000
+        args.data_dir = args.data_dir + '/Right/'
 
 if args.net_name == 'InceptionV3':
     from inception_v3 import inception_v3_arg_scope as net_arg_scope
@@ -65,7 +72,7 @@ elif args.net_name == 'InceptionResnetV2':
     from inception_resnet_v2 import inception_resnet_v2 as Net
 
 if args.eyeball == 'left':
-    file_input = open('/data/zengdifei/TF_gaze/Test_left_' + args.data_type + '.txt', 'r')
+    file_input = open('/data/zengdifei/TF_gaze/Test/Test_left_' + args.data_type + '.txt', 'r')
     if args.mission == 'theta':
         half_classes = Experiments.half_classes_left_theta
         f = open("../result/test_result_left_theta.txt", "a")
@@ -73,7 +80,7 @@ if args.eyeball == 'left':
         half_classes = Experiments.half_classes_left_phi
         f = open("../result/test_result_left_phi.txt", "a")
 else:
-    file_input = open('/data/zengdifei/TF_gaze/Test_right_' + args.data_type + '.txt', 'r')
+    file_input = open('/data/zengdifei/TF_gaze/Test/Test_right_' + args.data_type + '.txt', 'r')
     if args.mission == 'theta':
         half_classes = Experiments.half_classes_right_theta
         f = open("../result/test_result_right_theta.txt", "a")

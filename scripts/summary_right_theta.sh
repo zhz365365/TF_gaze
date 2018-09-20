@@ -1,1 +1,1 @@
-tensorboard --logdir=/data/zengdifei/TF_gaze/event_log/right_theta --port=6007
+tensorboard --logdir=/data/zengdifei/TF_gaze/backup/MPIIGaze/N_120_with_frontal_face/right_theta --port=6007

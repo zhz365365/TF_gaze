@@ -76,7 +76,7 @@ def train_input(data_dir, batch_size, half_classes, mission):
 
 def main():
     with tf.Graph().as_default():
-        filename = ['/data/zengdifei/TF_gaze/dataset_eyediap/M/train_left.tfrecords']
+        filename = ['/data/zengdifei/TF_gaze/dataset/M/train_left.tfrecords']
 
         filename_queue = tf.train.string_input_producer(filename)
 

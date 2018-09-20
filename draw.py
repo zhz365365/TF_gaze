@@ -204,6 +204,9 @@ if __name__ == '__main__':
     frontal_face('18', 1, 0, 0, 1)
     """
 
+    frontal_face('30', 1, 1, 1, 1)
     frontal_face('90', 1, 1, 1, 1)
+    frontal_face('120', 1, 1, 1, 1)
     frontal_face('180', 1, 1, 1, 1)
-    #frontal_face('360', 1, 1, 1, 1)
+    frontal_face('1800', 1, 1, 1, 1)
+    frontal_face('360', 1, 1, 1, 1)

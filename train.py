@@ -15,11 +15,11 @@ parser.add_argument('--batch_size', default=256, help='the size of examples in p
 parser.add_argument('--epoch', default=300, help='the train epoch')
 parser.add_argument('--moving_average_decay', default=0.9999, help='moving average decay')
 parser.add_argument('--num_epochs_per_decay', default=150, help='num epochs per decay')
-parser.add_argument('--learning_rate_decay_factor', default=0.1, help='learning rate decay factor')
+parser.add_argument('--learning_rate_decay_factor', default=0.5, help='learning rate decay factor')
 parser.add_argument('--learning_rate_initial', default=1e-2, help='learning rate initial')
 parser.add_argument('--train_num', default=51484, help='the numbers of train dataset')
 parser.add_argument('--data_type', default='M', help='the silent or move')
-parser.add_argument('--data_dir', default='/data/zengdifei/TF_gaze/dataset_eyediap/', help='the directory of training data')
+parser.add_argument('--data_dir', default='/data/zengdifei/TF_gaze/dataset/', help='the directory of training data')
 parser.add_argument('--summary_dir', default='/data/zengdifei/TF_gaze/event_log', help='the directory of summary')
 parser.add_argument('--net_name', default='InceptionV3', help='the name of the network')
 parser.add_argument('--image_height', default=144, help='the height of image')
@@ -27,6 +27,7 @@ parser.add_argument('--image_width', default=240, help='the width of image')
 args = parser.parse_args()
 args.batch_size = int(args.batch_size)
 args.num_epochs_per_decay = int(args.num_epochs_per_decay)
+args.learning_rate_decay_factor = float(args.learning_rate_decay_factor)
 args.data_dir = args.data_dir + args.data_type
 
 if args.data_type == 'SM':
@@ -49,6 +50,11 @@ elif args.data_type == 'MPIIGaze':
         args.train_num = 156522
     else:
         args.train_num = 156522
+elif args.data_type == 'MPIIIGaze':
+    if args.eyeball == 'left':
+        args.train_num = 93976
+    else:
+        args.train_num = 93872
 
 
 if args.net_name == 'InceptionV3':
@@ -138,7 +144,7 @@ def train():
 
         labels = tf.reshape(labels, [args.batch_size])
 
-        logits, end_points = arch_net(image, True, 0.8, half_classes)
+        logits, end_points = arch_net(image, True, 0.5, half_classes)
 
         variables_to_restore,variables_to_train = g_parameter(args.net_name)
 
